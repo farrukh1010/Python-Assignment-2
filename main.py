@@ -167,3 +167,153 @@
 # print(key_with_highest_value(data)) 
 
 
+# Advanced Function Questions
+
+# 1. Write a function that calculates the power of a number without using the ** operator.
+
+# def power(base, exponent):
+#     # Handle edge case for exponent 0
+#     if exponent == 0:
+#         return 1
+    
+#     # Handle negative exponents
+#     is_negative = exponent < 0
+#     exponent = abs(exponent)
+    
+#     # Perform iterative multiplication
+#     result = 1
+#     for _ in range(exponent):
+#         result *= base
+    
+  
+#     if is_negative:
+#         return 1 / result
+    
+#     return result
+
+
+# print(power(2, 3))  
+# print(power(5, -2)) 
+# print(power(7, 0))  
+
+
+
+# 2. Create a function that converts a given temperature from Celsius to Fahrenheit and vice versa.
+
+# def convert_temperature(value, scale):
+#     if scale.upper() == "F":
+#         return value * 9/5 + 32  # Celsius to Fahrenheit
+#     if scale.upper() == "C":
+#         return (value - 32) * 5/9  # Fahrenheit to Celsius
+#     raise ValueError("Invalid scale. Use 'C' or 'F'.")
+
+
+# print(convert_temperature(25, "F")) 
+# print(convert_temperature(77, "C"))  
+
+
+
+# 3. Write a function to flatten a nested list.
+
+# def flatten(nested_list):
+#     """
+#     Flattens a nested list into a single list.
+
+#     Parameters:
+#         nested_list (list): A list that may contain nested lists.
+
+#     Returns:
+#         list: A flattened version of the input list.
+#     """
+#     result = []
+#     for item in nested_list:
+#         if isinstance(item, list):
+#             result.extend(flatten(item))  # Recursively flatten
+#         else:
+#             result.append(item)  # Add non-list items
+#     return result
+
+
+# nested = [1, [2, [3, 4], 5], [6, 7], 8]
+# print(flatten(nested)) 
+
+
+
+# 4. Create a function to check if two strings are anagrams.
+
+# def are_anagrams(str1, str2):
+#     """
+#     Check if two strings are anagrams.
+
+#     Parameters:
+#         str1 (str): The first string.
+#         str2 (str): The second string.
+
+#     Returns:
+#         bool: True if the strings are anagrams, False otherwise.
+#     """
+#     # Remove spaces and convert to lowercase
+#     str1 = str1.replace(" ", "").lower()
+#     str2 = str2.replace(" ", "").lower()
+    
+#     # Check if sorted characters are the same
+#     return sorted(str1) == sorted(str2)
+
+# # Example usage
+# print(are_anagrams("listen", "silent"))  
+# print(are_anagrams("hello", "world"))    
+
+
+# 5. Write a function that takes a list and removes all duplicate elements.
+
+# def remove_duplicates(lst):
+#     """
+#     Removes duplicates from a list while maintaining the order.
+
+#     Parameters:
+#         lst (list): The input list.
+
+#     Returns:
+#         list: A list with duplicates removed.
+#     """
+#     seen = set()
+#     result = []
+#     for item in lst:
+#         if item not in seen:
+#             seen.add(item)
+#             result.append(item)
+#     return result
+
+
+# print(remove_duplicates([1, 2, 2, 3, 4, 4, 5]))  
+
+
+# 6. Create a function that takes a string and counts the frequency of each character.
+def char_frequency(s):
+    """
+    Counts the frequency of each character in a string.
+
+    Parameters:
+        s (str): The input string.
+
+    Returns:
+        dict: A dictionary with characters as keys and their frequencies as values.
+    """
+    freq = {}
+    for char in s:
+        if char in freq:
+            freq[char] += 1
+        else:
+            freq[char] = 1
+    return freq
+
+# Example usage
+print(char_frequency("hello world"))  
+# Output: {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
+
+
+# Real-world Scenarios
+
+# 1. Write a function that takes a list of employee salaries and calculates the average salary.
+# 2. Create a function to generate a random password of given length, containing uppercase, lowercase, numbers, and special characters.
+
