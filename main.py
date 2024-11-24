@@ -259,7 +259,7 @@
 #     # Check if sorted characters are the same
 #     return sorted(str1) == sorted(str2)
 
-# # Example usage
+
 # print(are_anagrams("listen", "silent"))  
 # print(are_anagrams("hello", "world"))    
 
@@ -289,31 +289,73 @@
 
 
 # 6. Create a function that takes a string and counts the frequency of each character.
-def char_frequency(s):
-    """
-    Counts the frequency of each character in a string.
 
-    Parameters:
-        s (str): The input string.
+# def count_character_frequencies(s):
+#     frequency = {}
+#     for char in s:
+#         frequency[char] = frequency.get(char, 0) + 1
+#     return frequency
 
-    Returns:
-        dict: A dictionary with characters as keys and their frequencies as values.
-    """
-    freq = {}
-    for char in s:
-        if char in freq:
-            freq[char] += 1
-        else:
-            freq[char] = 1
-    return freq
 
-# Example usage
-print(char_frequency("hello world"))  
-# Output: {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
+# example_string = "hello world"
+# result = count_character_frequencies(example_string)
+# print(result)
+
+
 
 
 # Real-world Scenarios
 
 # 1. Write a function that takes a list of employee salaries and calculates the average salary.
+
+# def average_salary(salaries):
+#     """
+#     Calculates the average salary.
+
+#     Parameters:
+#         salaries (list): A list of employee salaries (numbers).
+
+#     Returns:
+#         float: The average salary, or 0 if the list is empty.
+#     """
+#     if not salaries:
+#         return 0  # Return 0 if the list is empty
+#     return sum(salaries) / len(salaries)
+
+
+# salaries = [50000, 60000, 55000, 70000]
+# print(average_salary(salaries))  
+
+
 # 2. Create a function to generate a random password of given length, containing uppercase, lowercase, numbers, and special characters.
+
+import random
+import string
+
+def generate_random_password(length):
+    if length < 4:
+        raise ValueError("Password length must be at least 4.")
+    
+    # Ensure at least one character from each category
+    all_characters = string.ascii_letters + string.digits + string.punctuation
+    password = [
+        random.choice(string.ascii_uppercase),
+        random.choice(string.ascii_lowercase),
+        random.choice(string.digits),
+        random.choice(string.punctuation),
+    ]
+    
+   
+    password += random.choices(all_characters, k=length - 4)
+    random.shuffle(password)
+    
+    return ''.join(password)
+
+
+try:
+    length = int(input("Enter the desired password length (minimum 4): "))
+    print("Generated Password:", generate_random_password(length))
+except ValueError:
+    print("Please enter a valid number.")
+
 
